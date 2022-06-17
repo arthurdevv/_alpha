@@ -10,6 +10,12 @@ export const Container = styled.div`
   justify-content: center;
   color: ${theme.hover};
   background: ${theme.background};
+
+  & svg {
+    width: 8rem;
+    height: 8rem;
+    fill: ${theme.background2};
+  }
 `;
 
 export const Animation = styled.div`

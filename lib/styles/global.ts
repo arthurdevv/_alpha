@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const theme = {
+  icon: 'rgba(230, 230, 230, 1.0)',
   color: 'rgba(153, 153, 153, 1.0)',
   hover: 'rgba(230, 230, 230, 1.0)',
   border: 'rgba(36, 36, 36, 1.0)',

@@ -5,10 +5,15 @@ import Terminal from './Terminal';
 import GlobalStyle, { Workspace } from '../styles/global';
 
 const App: React.FC = () => {
-  // Change this to true.
-  const [isLoading, setLoading] = React.useState(false);
+  const [isLoading, setLoading] = React.useState(true);
 
-  setTimeout(() => setLoading(false), 2200);
+  setTimeout(() => {
+    setLoading(false);
+  }, 3000);
+
+  React.useEffect(() => {
+    require('../../app/session');
+  });
 
   return (
     <>

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container, Animation, Triangle } from './styles';
+import { AlphaIcon } from '../Icon';
+import { Container, Animation } from './styles';
 
 const Loading: React.FC = () => {
   return (
     <Container>
       <Animation>
-        <Triangle />
+        <AlphaIcon />
       </Animation>
     </Container>
   );

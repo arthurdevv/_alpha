@@ -1,5 +1,3 @@
-import '../shortcuts';
-
 const isMac = process.platform === 'darwin';
 
 class Instance {

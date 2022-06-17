@@ -1,12 +1,13 @@
 import React from 'react';
+import { theme } from '../../styles/global';
 
 export const AlphaIcon = () => (
   <svg
-    stroke="currentColor"
-    fill="currentColor"
+    stroke={theme.icon}
+    fill={theme.icon}
     strokeWidth="0"
-    width="8rem"
-    height="8rem"
+    width="1rem"
+    height="1rem"
     viewBox="0 0 40 40"
     xmlns="http://www.w3.org/2000/svg"
   >
