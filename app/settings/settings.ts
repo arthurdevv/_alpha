@@ -10,7 +10,9 @@ const userData = isWin ? remote.app.getPath('userData') : os.homedir();
 
 const filename = '.alpha.js';
 const filepath = path.join(userData, filename);
-const defaultFilepath = path.resolve(appPath, 'app/settings', filename);
+
+const defaultFilename = 'default.js';
+const defaultFilepath = path.resolve(appPath, 'app/settings', defaultFilename);
 
 class Settings {
   settings: Record<string, any>;
