@@ -1,9 +1,9 @@
 import React from 'react';
-import { getCurrentWindow } from '@electron/remote';
 import Menu from '../../../app/menu';
 import Settings from '../../../app/settings/settings';
-import { createSession } from '../../../app/session';
 import { fitAddon } from '../../../app/core/addon';
+import { createSession } from '../../../app/session';
+import { isMac, currentWindow } from '../../../app/constants';
 import {
   Container,
   Wrapper,
@@ -25,8 +25,6 @@ import {
 } from '../Icon';
 
 const Header: React.FC = () => {
-  const isMac = process.platform === 'darwin';
-  const currentWindow = getCurrentWindow();
   const isMaximized = currentWindow.isMaximized();
   const [maximized, setMaximized] = React.useState(isMaximized);
 

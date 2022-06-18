@@ -1,15 +1,11 @@
-import { app, Menu, getCurrentWindow, shell, dialog } from '@electron/remote';
 import { MenuItemConstructorOptions } from 'electron';
-import { createSession } from './session';
-import Settings from './settings/settings';
+import { Menu, shell, dialog } from '@electron/remote';
 import AppInfo from '../package.json';
+import Settings from './settings/settings';
+import { createSession } from './session';
+import { appName, appNameUpper, appVersion, currentWindow } from './constants';
 
 const settings = new Settings();
-const currentWindow = getCurrentWindow();
-
-const appName = app.name;
-const appVersion = app.getVersion();
-const appNameUpper = appName.charAt(0).toUpperCase() + appName.slice(1);
 
 const { node } = process.versions;
 const { electron } = AppInfo.devDependencies;

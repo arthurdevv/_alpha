@@ -1,26 +1,21 @@
 import * as xterm from 'xterm';
-import SettingsClass from './settings';
 
 declare global {
-  export type SettingsOptions = {
-    path: string;
+  type SettingsOptions = {
+    parsedPath: string;
 
     defaultPath: string;
   };
 
-  export type Settings = Readonly<SettingsClass>;
+  type SettingsValue =
+    | string
+    | number
+    | boolean
+    | object
+    | null
+    | SettingsValue[];
 
-  export type SettingsContext = Record<string, any>;
-
-  export type SettingsType = string | number | boolean | object | null;
-
-  export type SettingsValue = SettingsType | SettingsObject | SettingsValue[];
-
-  export type SettingsObject = {
-    [key: string]: SettingsValue;
-  };
-
-  type SettingsKeys =
+  type SettingsKey =
     | 'shell'
     | 'args'
     | 'env'

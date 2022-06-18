@@ -35,7 +35,7 @@ class Settings {
     fs.writeFileSync(path, data, { encoding: 'utf8' });
   }
 
-  setValue(key: SettingsKeys, value: SettingsValue): void {
+  setValue(key: SettingsKey, value: SettingsValue): void {
     if (!this.settings[key] || typeof value !== typeof this.settings[key]) {
       return;
     }
@@ -43,11 +43,11 @@ class Settings {
     this.settings[key] = value;
   }
 
-  getValue(key: SettingsKeys): any {
+  getValue(key: SettingsKey): any {
     return this.settings[key];
   }
 
-  getType(key: SettingsKeys): SettingsType {
+  getType(key: SettingsKey): SettingsType {
     return typeof this.settings[key];
   }
 
