@@ -1,109 +1,29 @@
 import * as xterm from 'xterm';
 
 declare global {
-  type Terminal = xterm.Terminal;
+  type Terminal = xterm.Terminal | null;
 
-  type SettingsOptions = {
-    parsedPath: string;
+  type TabInstance = {
+    container: HTMLElement;
 
-    defaultPath: string;
+    label: HTMLElement;
+
+    close: HTMLElement;
   };
 
-  type Settings = Readonly<SettingsClass>;
+  type TerminalInstance = {
+    container: HTMLElement;
 
-  type SettingsContext = Record<string, any>;
-
-  type SettingsType = string | number | boolean | object | null;
-
-  type SettingsValue = SettingsType | SettingsObject | SettingsValue[];
-
-  type SettingsObject = {
-    [key: string]: SettingsValue;
+    content: HTMLElement;
   };
 
-  type SettingsKey =
-    | 'shell'
-    | 'args'
-    | 'env'
-    | 'fontSize'
-    | 'fontFamily'
-    | 'fontWeight'
-    | 'lineHeight'
-    | 'letterSpacing'
-    | 'cursorStyle'
-    | 'cursorBlink'
-    | 'allowTransparency'
-    | 'theme';
+  type InstanceGroup = {
+    tab: Element;
 
-  export type SettingsRaw = {
-    name?: string;
-
-    args?: string[];
-
-    env?: {
-      [key: string]: string;
-    };
-
-    fontSize?: number;
-
-    fontFamily?: string;
-
-    fontWeight?: xterm.FontWeight;
-
-    lineHeight?: number;
-
-    letterSpacing?: number;
-
-    cursorBlink?: boolean;
-
-    cursorStyle?: 'block' | 'underline' | 'bar';
-
-    allowTransparency?: boolean;
-
-    theme?: {
-      cursor?: string;
-
-      selection?: string;
-
-      foreground?: string;
-
-      background?: string;
-
-      black?: string;
-
-      red?: string;
-
-      green?: string;
-
-      yellow?: string;
-
-      blue?: string;
-
-      magenta?: string;
-
-      cyan?: string;
-
-      white?: string;
-
-      brightBlack?: string;
-
-      brightRed?: string;
-
-      brightGreen?: string;
-
-      brightYellow?: string;
-
-      brightBlue?: string;
-
-      brightMagenta?: string;
-
-      brightCyan?: string;
-
-      brightWhite?: string;
-    };
+    terminal: Element;
   };
 
-  interface ShellOptions {
+  type ShellOptions = {
     name: string;
 
     cwd: string | undefined;
@@ -111,9 +31,9 @@ declare global {
     env: {
       [key: string]: string;
     };
-  }
+  };
 
-  interface TerminalOptions {
+  type TerminalOptions = {
     fontSize?: number;
 
     fontFamily?: string;
@@ -171,27 +91,7 @@ declare global {
 
       brightWhite?: string;
     };
-  }
-
-  interface TabInstance {
-    container: HTMLElement;
-
-    label: HTMLElement;
-
-    close: HTMLElement;
-  }
-
-  interface TerminalInstance {
-    container: HTMLElement;
-
-    content: HTMLElement;
-  }
-
-  interface InstanceGroup {
-    tab: Element;
-
-    terminal: Element;
-  }
+  };
 }
 
 export {};

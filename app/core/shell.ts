@@ -20,7 +20,7 @@ class Shell {
       cwd: homedir(),
       env: {
         ...Object(process.env),
-        ...settings.getValue('env'),
+        ...Object(settings.getValue('env')),
       },
     };
 

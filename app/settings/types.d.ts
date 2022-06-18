@@ -1,19 +1,10 @@
 import * as xterm from 'xterm';
+import _Settings from './settings';
 
 declare global {
-  type SettingsOptions = {
-    parsedPath: string;
+  type Settings = _Settings;
 
-    defaultPath: string;
-  };
-
-  type SettingsValue =
-    | string
-    | number
-    | boolean
-    | object
-    | null
-    | SettingsValue[];
+  type SettingsValue = string | number | boolean | object | null;
 
   type SettingsKey =
     | 'shell'
@@ -95,6 +86,12 @@ declare global {
 
       brightWhite?: string;
     };
+  };
+
+  type SettingsOptions = {
+    parsedPath: string;
+
+    defaultPath: string;
   };
 }
 

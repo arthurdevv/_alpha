@@ -4,10 +4,11 @@ import Terminal from './core/terminal';
 import Settings from './settings/settings';
 import Addons, { fitAddon } from './core/addon';
 import 'xterm/css/xterm.css';
-import './settings/_settings';
 
 const settings = new Settings();
 settings.create();
+
+console.log(settings);
 
 const createSession = () => {
   settings.update();
@@ -20,6 +21,8 @@ const createSession = () => {
   const isShellEmpty = settings.getValue('shell') === '';
 
   let file = isWin ? process.env.ComSpec! : process.env.SHELL!;
+
+  // @ts-ignore
   file = isShellEmpty ? file : settings.getValue('shell');
 
   const instance = new Instance({
@@ -28,6 +31,8 @@ const createSession = () => {
   }).create(file).terminal;
 
   const terminal = new Terminal(instance, settings);
+
+  // @ts-ignore
   const shell = new Shell(file, args, settings);
 
   terminal.initialize(shell.shell);
@@ -36,7 +41,7 @@ const createSession = () => {
   Addons.forEach(addon => terminal.loadAddon(addon));
   fitAddon.fit();
 
-  settings.watchAndUpdateOptions(terminal.terminal);
+  settings.watchOptions(terminal.terminal);
 };
 
 export { createSession };
