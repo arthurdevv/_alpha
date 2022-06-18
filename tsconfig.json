@@ -22,7 +22,7 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "outDir": "dist",
-    "typeRoots": ["node_modules/@types"],
+    "typeRoots": ["node_modules/@types", "./app/**/*.d.ts"],
   },
   "include": ["./app/**/*", "./lib/**/*"]
 }

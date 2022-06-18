@@ -1,16 +1,22 @@
 import * as xterm from 'xterm';
-import SettingsClass from './settings/settings';
+import SettingsClass from './settings';
 
 declare global {
-  type Settings = Readonly<SettingsClass>;
+  export type SettingsOptions = {
+    path: string;
 
-  type SettingsContext = Record<string, any>;
+    defaultPath: string;
+  };
 
-  type SettingsType = string | number | boolean | object | null;
+  export type Settings = Readonly<SettingsClass>;
 
-  type SettingsValue = SettingsType | SettingsObject | SettingsValue[];
+  export type SettingsContext = Record<string, any>;
 
-  type SettingsObject = {
+  export type SettingsType = string | number | boolean | object | null;
+
+  export type SettingsValue = SettingsType | SettingsObject | SettingsValue[];
+
+  export type SettingsObject = {
     [key: string]: SettingsValue;
   };
 
@@ -28,17 +34,15 @@ declare global {
     | 'allowTransparency'
     | 'theme';
 
-  interface ShellOptions {
-    name: string;
+  export type SettingsRaw = {
+    name?: string;
 
-    cwd: string | undefined;
+    args?: string[];
 
-    env: {
+    env?: {
       [key: string]: string;
     };
-  }
 
-  interface TerminalOptions {
     fontSize?: number;
 
     fontFamily?: string;
@@ -96,27 +100,7 @@ declare global {
 
       brightWhite?: string;
     };
-  }
-
-  interface TabInstance {
-    container: HTMLElement;
-
-    label: HTMLElement;
-
-    close: HTMLElement;
-  }
-
-  interface TerminalInstance {
-    container: HTMLElement;
-
-    content: HTMLElement;
-  }
-
-  interface InstanceGroup {
-    tab: Element;
-
-    terminal: Element;
-  }
+  };
 }
 
 export {};

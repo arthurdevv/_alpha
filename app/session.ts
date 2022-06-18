@@ -4,6 +4,7 @@ import Terminal from './core/terminal';
 import Settings from './settings/settings';
 import Addons, { fitAddon } from './core/addon';
 import 'xterm/css/xterm.css';
+import './settings/_settings';
 
 const settings = new Settings();
 settings.create();
