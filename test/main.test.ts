@@ -3,7 +3,7 @@ import { _electron } from 'playwright';
 
 const getPackagePath = (_path: string) => path.join(__dirname, _path);
 
-test('electron launch', async () => {
+test('launches electron application', async () => {
   let executablePath: string;
 
   switch (process.platform) {
