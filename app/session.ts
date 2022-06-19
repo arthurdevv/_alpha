@@ -6,7 +6,6 @@ import Addons, { fitAddon } from './core/addon';
 import 'xterm/css/xterm.css';
 
 const settings = new Settings();
-settings.create();
 
 const createSession = () => {
   settings.update();
