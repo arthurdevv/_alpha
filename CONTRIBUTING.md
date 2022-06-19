@@ -33,12 +33,12 @@ yarn run dev
 After that, you can generate the binaries:
 
 ```sh
-yarn run build
+yarn run package
 ```
 
 **Note: It will generate the binary in the `release` folder.**
 
-- **If you get `node-pty` issues, run:**
+##### If you get `node-pty` issues, run:
 
 ```sh
 yarn run rebuild-pty
