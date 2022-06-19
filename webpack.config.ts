@@ -1,6 +1,7 @@
 import path from 'path';
 import Copy from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { IgnorePlugin } from 'webpack';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -71,6 +72,8 @@ const config = [
       publicPath: '/',
     },
     plugins: [
+      process.platform !== 'darwin' &&
+        new IgnorePlugin({ resourceRegExp: /^fsevents$/ }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'app/electron/index.html'),
         inject: 'body',

@@ -8,8 +8,6 @@ import 'xterm/css/xterm.css';
 const settings = new Settings();
 settings.create();
 
-console.log(settings);
-
 const createSession = () => {
   settings.update();
 
