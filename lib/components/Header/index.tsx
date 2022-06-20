@@ -1,8 +1,8 @@
 import React from 'react';
 import Menu from '../../../app/menu';
+import Session from '../../../app/core/session';
 import Settings from '../../../app/settings/settings';
 import { fitAddon } from '../../../app/core/addon';
-import { createSession } from '../../../app/session';
 import { isMac, currentWindow } from '../../../app/constants';
 import {
   Container,
@@ -58,6 +58,13 @@ const Header: React.FC = () => {
 
     setTimeout(() => fitAddon.fit(), 1000);
   };
+
+  const createSession = React.useCallback(() => {
+    const session = new Session();
+    const tabsGroup = document.querySelector('.tabs-group')!;
+    const terminalGroup = document.querySelector('.terminal-group')!;
+    session.create({ tab: tabsGroup, terminal: terminalGroup });
+  }, []);
 
   const openSettings = React.useCallback(() => {
     const settings = new Settings();

@@ -1,5 +1,6 @@
 import * as xterm from 'xterm';
 import { IPty } from 'node-pty';
+import 'xterm/css/xterm.css';
 
 class Terminal {
   terminal: xterm.Terminal | null;
@@ -12,11 +13,13 @@ class Terminal {
     this.parent = instance;
     this.options = settings.settings;
 
+    console.log(this.options);
+
     this.terminal = new xterm.Terminal(this.options);
     this.terminal.open(this.parent);
   }
 
-  initialize(shell?: IPty | null): void {
+  launch(shell?: IPty | null): void {
     this.onData(shell);
   }
 

@@ -2,7 +2,6 @@ import { MenuItemConstructorOptions } from 'electron';
 import { Menu, shell, dialog } from '@electron/remote';
 import AppInfo from '../package.json';
 import Settings from './settings/settings';
-import { createSession } from './session';
 import { appName, appNameUpper, appVersion, currentWindow } from './constants';
 
 const settings = new Settings();

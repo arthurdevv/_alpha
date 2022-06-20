@@ -1,38 +1,40 @@
 import vm from 'vm';
 import chokidar from 'chokidar';
 import { shell } from 'electron';
-import { options, watcherOptions } from '../constants';
+import { settingsOptions, watcherOptions } from '../constants';
 import { readFile, writeFile, existsFile } from '../file';
 
-const watcher = chokidar.watch(options.parsedPath, watcherOptions);
+const watcher = chokidar.watch(settingsOptions.parsedPath, watcherOptions);
 
 class Settings {
   settings: SettingsRaw;
 
   constructor() {
     this.settings = {};
+
+    this.create();
   }
 
   open() {
-    shell.openPath(options.parsedPath);
+    shell.openPath(settingsOptions.parsedPath);
   }
 
   create() {
-    if (existsFile(options.parsedPath)) {
+    if (existsFile(settingsOptions.parsedPath)) {
       this.update();
 
       return;
     }
 
-    const defaultFile = readFile(options.defaultPath)!;
+    const defaultFile = readFile(settingsOptions.defaultPath)!;
 
-    writeFile(options.parsedPath, defaultFile);
+    writeFile(settingsOptions.parsedPath, defaultFile);
 
     this.update();
   }
 
   update() {
-    const context = this.getContext(options.parsedPath);
+    const context = this.getContext(settingsOptions.parsedPath);
 
     if (!context) {
       return;
@@ -47,7 +49,7 @@ class Settings {
         return;
       }
 
-      terminal.options = this.getContext(options.parsedPath);
+      terminal.options = this.getContext(settingsOptions.parsedPath);
     };
 
     watcher.on('change', changeOptions);

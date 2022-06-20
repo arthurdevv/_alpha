@@ -27,7 +27,7 @@ class Shell {
     this.shell = pty.spawn(this.file, this.args, this.options);
   }
 
-  initialize(terminal?: Terminal | null): void {
+  launch(terminal?: Terminal | null): void {
     this.onData(terminal);
     this.onContext(terminal);
   }

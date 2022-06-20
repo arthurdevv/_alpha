@@ -17,7 +17,7 @@ export const userData = isMac ? os.homedir() : app.getPath('userData');
 
 export const currentWindow = getCurrentWindow();
 
-export const options: SettingsOptions = {
+export const settingsOptions = {
   parsedPath: path.join(userData, '.alpha.js'),
   defaultPath: path.resolve(appPath, 'app/settings/default.js'),
 };

@@ -1,8 +1,8 @@
 "use strict";
 
 module.exports = {
-  // The shell's file. If empty, the default system shell will be used.
-  shell: '',
+  // The shell's file. If undefined, the default system shell will be used.
+  shell: undefined,
 
   // The shell's arguments.
   args: ["--login"],
@@ -37,16 +37,16 @@ module.exports = {
   // The color theme of the terminal.
   theme: {
     // The default cursor color of the terminal.
-    cursor: 'rgba(250, 250, 250, 1.0)',
+    cursor: "rgba(250, 250, 250, 1.0)",
 
     // The default selection color of the terminal.
-    selection: 'rgba(153, 153, 153, 1.0)',
+    selection: "rgba(153, 153, 153, 1.0)",
 
     // The default foreground color of the terminal.
-    foreground: 'rgba(250, 250, 250, 1.0)',
+    foreground: "rgba(250, 250, 250, 1.0)",
 
     // The default background color of the terminal.
-    background: 'transparent',
+    background: "transparent",
 
     // Colors to theme the terminal with.
     black: "#000000",

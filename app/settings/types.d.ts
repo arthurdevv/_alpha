@@ -87,12 +87,6 @@ declare global {
       brightWhite?: string;
     };
   };
-
-  type SettingsOptions = {
-    parsedPath: string;
-
-    defaultPath: string;
-  };
 }
 
 export {};
