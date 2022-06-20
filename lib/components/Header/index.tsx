@@ -61,9 +61,7 @@ const Header: React.FC = () => {
 
   const createSession = React.useCallback(() => {
     const session = new Session();
-    const tabsGroup = document.querySelector('.tabs-group')!;
-    const terminalGroup = document.querySelector('.terminal-group')!;
-    session.create({ tab: tabsGroup, terminal: terminalGroup });
+    session.create();
   }, []);
 
   const openSettings = React.useCallback(() => {

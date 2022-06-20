@@ -8,16 +8,11 @@ import { isMac } from '../constants';
 const settings = new Settings();
 
 class Session {
-  terminal: Terminal | null;
+  terminal: Terminal | undefined;
 
-  shell: Shell | null;
+  shell: Shell | undefined;
 
-  constructor() {
-    this.terminal = null;
-    this.shell = null;
-  }
-
-  create(group: InstanceGroup): void {
+  create(): void {
     settings.update();
 
     const userArgs = settings.getValue('args') as string | string[];
@@ -29,8 +24,8 @@ class Session {
     };
 
     const instance = new Instance({
-      tab: group.tab,
-      terminal: group.terminal,
+      tab: document.querySelector('.tabs-group')!,
+      terminal: document.querySelector('.terminal-group')!,
     }).create(shellConfig.file);
 
     this.terminal = new Terminal(instance.terminal, settings);

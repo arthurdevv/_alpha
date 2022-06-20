@@ -1,13 +1,15 @@
 import { MenuItemConstructorOptions } from 'electron';
 import { Menu, shell, dialog } from '@electron/remote';
-import AppInfo from '../package.json';
+import packageJSON from '../package.json';
+import Session from './core/session';
 import Settings from './settings/settings';
 import { appName, appNameUpper, appVersion, currentWindow } from './constants';
 
+const session = new Session();
 const settings = new Settings();
 
 const { node } = process.versions;
-const { electron } = AppInfo.devDependencies;
+const { electron } = packageJSON.devDependencies;
 
 const MenuTemplate: MenuItemConstructorOptions[] = [
   {
@@ -16,7 +18,7 @@ const MenuTemplate: MenuItemConstructorOptions[] = [
       {
         label: 'New Terminal',
         accelerator: 'CommandOrControl+Shift+t',
-        click: () => createSession(),
+        click: () => session.create(),
       },
       { type: 'separator' },
       {
