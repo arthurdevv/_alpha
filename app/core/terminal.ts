@@ -13,8 +13,6 @@ class Terminal {
     this.parent = instance;
     this.options = settings.settings;
 
-    console.log(this.options);
-
     this.terminal = new xterm.Terminal(this.options);
     this.terminal.open(this.parent);
   }

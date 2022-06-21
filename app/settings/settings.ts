@@ -93,7 +93,7 @@ class Settings {
     try {
       fs.writeFileSync(path, data, { encoding: 'utf-8' });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
