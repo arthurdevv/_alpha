@@ -12,15 +12,10 @@ const winURL = isDev
   : `file://${__dirname}/index.html`;
 
 const createWindow = () => {
-  const icon = nativeImage.createFromPath(
-    `${__dirname}/../build/icons/256x256.png`,
-  );
-
-  if (app.dock) {
-    app.dock.setIcon(icon);
-  }
+  const icon = nativeImage.createFromPath(`${__dirname}/../build/icon.ico`);
 
   mainWindow = new BrowserWindow({
+    icon,
     width: 1050,
     height: 560,
     minWidth: 400,

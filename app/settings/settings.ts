@@ -1,8 +1,8 @@
 import vm from 'vm';
+import fs from 'fs';
 import chokidar from 'chokidar';
 import { shell } from 'electron';
 import { settingsOptions, watcherOptions } from '../constants';
-import { readFile, writeFile, existsFile } from '../file';
 
 const watcher = chokidar.watch(settingsOptions.parsedPath, watcherOptions);
 
@@ -20,15 +20,15 @@ class Settings {
   }
 
   create() {
-    if (existsFile(settingsOptions.parsedPath)) {
+    if (this.existsFile(settingsOptions.parsedPath)) {
       this.update();
 
       return;
     }
 
-    const defaultFile = readFile(settingsOptions.defaultPath)!;
+    const defaultFile = this.readFile(settingsOptions.defaultPath)!;
 
-    writeFile(settingsOptions.parsedPath, defaultFile);
+    this.writeFile(settingsOptions.parsedPath, defaultFile);
 
     this.update();
   }
@@ -72,13 +72,37 @@ class Settings {
   }
 
   getContext(path: string): Record<string, any> {
-    const code = readFile(path)!;
+    const code = this.readFile(path)!;
     const module: Record<string, any> = {};
     const script = new vm.Script(code, { displayErrors: false });
 
     script.runInNewContext({ module });
 
     return module.exports;
+  }
+
+  private readFile(path: string): string | undefined {
+    try {
+      return fs.readFileSync(path, 'utf8');
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  private writeFile(path: string, data: string): void {
+    try {
+      fs.writeFileSync(path, data, { encoding: 'utf-8' });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  private existsFile(path: string): boolean | undefined {
+    try {
+      return fs.existsSync(path);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
