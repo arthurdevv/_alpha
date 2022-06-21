@@ -20,15 +20,15 @@ class Settings {
   }
 
   create() {
-    if (this.existsFile(settingsOptions.parsedPath)) {
+    if (fs.existsSync(settingsOptions.parsedPath)) {
       this.update();
 
       return;
     }
 
-    const defaultFile = this.readFile(settingsOptions.defaultPath)!;
+    const defaultFile = fs.readFileSync(settingsOptions.defaultPath, 'utf8')!;
 
-    this.writeFile(settingsOptions.parsedPath, defaultFile);
+    fs.writeFileSync(settingsOptions.parsedPath, defaultFile, 'utf8');
 
     this.update();
   }
@@ -72,37 +72,13 @@ class Settings {
   }
 
   getContext(path: string): Record<string, any> {
-    const code = this.readFile(path)!;
+    const code = fs.readFileSync(path, 'utf8')!;
     const module: Record<string, any> = {};
     const script = new vm.Script(code, { displayErrors: false });
 
     script.runInNewContext({ module });
 
     return module.exports;
-  }
-
-  private readFile(path: string): string | undefined {
-    try {
-      return fs.readFileSync(path, 'utf8');
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  private writeFile(path: string, data: string): void {
-    try {
-      fs.writeFileSync(path, data, { encoding: 'utf-8' });
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  private existsFile(path: string): boolean | undefined {
-    try {
-      return fs.existsSync(path);
-    } catch (error) {
-      console.error(error);
-    }
   }
 }
 
