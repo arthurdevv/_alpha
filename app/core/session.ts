@@ -1,12 +1,11 @@
+import userShell from 'default-shell';
 import Shell from './shell';
 import Instance from './instance';
 import Terminal from './terminal';
 import Settings from '../settings/settings';
 import Addons, { fitAddon } from './addon';
-import { isMac } from '../constants';
 
 const settings = new Settings();
-
 class Session {
   terminal: Terminal | undefined;
 
@@ -15,12 +14,11 @@ class Session {
   create(): void {
     settings.update();
 
-    const userArgs = settings.getValue('args') as string | string[];
-    const userShell = settings.getValue('shell') as string | undefined;
-    const defaultShell = isMac ? process.env.SHELL! : process.env.ComSpec!;
+    const customArgs = settings.getValue('args') as string | string[];
+    const customShell = settings.getValue('shell') as string | undefined;
     const shellConfig = {
-      file: userShell || defaultShell,
-      args: userArgs,
+      file: customShell || userShell,
+      args: customArgs,
     };
 
     const instance = new Instance({

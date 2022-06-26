@@ -18,7 +18,7 @@
     "dev:renderer": "cross-env NODE_ENV=development webpack serve --config-name renderer",
     "dev:electron": "cross-env NODE_ENV=development webpack --config-name main && electron dist",
     "build": "yarn tsc && cross-env NODE_ENV=production webpack",
-    "package": "yarn build && electron-builder",
+    "package": "rimraf release && yarn build && electron-builder",
     "tsc": "rimraf dist && tsc -b -v",
     "lint": "eslint --ext .tsx,.ts,.js",
     "test": "jest --passWithNoTests --detectOpenHandles",
@@ -27,6 +27,7 @@
   "dependencies": {
     "@electron/remote": "^2.0.8",
     "chokidar": "^3.5.3",
+    "default-shell": "^2.2.0",
     "electron-is-dev": "^2.0.0",
     "electron-updater": "^5.0.1",
     "node-pty": "^0.10.1",

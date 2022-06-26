@@ -12,7 +12,8 @@ const winURL = isDev
   : `file://${__dirname}/index.html`;
 
 const createWindow = () => {
-  const icon = nativeImage.createFromPath(`${__dirname}/../build/icon.ico`);
+  let icon = nativeImage.createFromPath(`${__dirname}/../build/icon.ico`);
+  icon = icon.resize({ width: 48, height: 48 });
 
   mainWindow = new BrowserWindow({
     icon,
