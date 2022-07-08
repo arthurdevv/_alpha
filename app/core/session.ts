@@ -5,7 +5,10 @@ import Settings from '../settings/settings';
 import Addons, { fitAddon } from './addon';
 import { isMac } from '../constants';
 
+const { SHELL, ComSpec } = process.env;
+
 const settings = new Settings();
+
 class Session {
   terminal: Terminal | undefined;
 
@@ -14,12 +17,13 @@ class Session {
   create(): void {
     settings.update();
 
-    const customArgs = settings.getValue('args') as string | string[];
-    const customShell = settings.getValue('shell') as string | undefined;
-    const shellConfig = {
-      file: customShell || isMac ? process.env.SHELL! : process.env.ComSpec!,
-      args: customArgs,
-    };
+    const customArgs = settings.getValue('args');
+    const customShell = settings.getValue('shell');
+    const shellConfig = { file: isMac ? SHELL! : ComSpec!, args: customArgs };
+
+    if (customShell) {
+      shellConfig.file = customShell;
+    }
 
     const instance = new Instance({
       tab: document.querySelector('.tabs-group')!,

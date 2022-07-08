@@ -63,7 +63,7 @@ class Settings {
     this.settings[key] = value;
   }
 
-  getValue(key: SettingsKey): SettingsValue {
+  getValue(key: SettingsKey): any {
     return this.settings[key];
   }
 

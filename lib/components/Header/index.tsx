@@ -78,19 +78,19 @@ const Header: React.FC = () => {
     <Container>
       <Wrapper>
         <MacActions>
-          <MacActionItem onClick={closeWindow} aria-label="Close" />
-          <MacActionItem onClick={minimizeWindow} aria-label="Minimize" />
-          <MacActionItem onClick={maximizeWindow} aria-label="Maximize" />
+          <MacActionItem aria-label="Close" onClick={closeWindow} />
+          <MacActionItem aria-label="Minimize" onClick={minimizeWindow} />
+          <MacActionItem aria-label="Maximize" onClick={maximizeWindow} />
         </MacActions>
         <TabsGroup className="tabs-group" role="tablist" aria-hidden="true" />
         <Actions>
-          <ActionItem onClick={createSession} aria-label="New Terminal">
+          <ActionItem aria-label="New Terminal" onClick={createSession}>
             <PlusIcon />
           </ActionItem>
         </Actions>
         <DragRegion />
         <Actions>
-          <ActionItem onClick={openSettings} aria-label="Settings">
+          <ActionItem aria-label="Settings" onClick={openSettings}>
             <SettingsIcon />
           </ActionItem>
         </Actions>
@@ -100,28 +100,28 @@ const Header: React.FC = () => {
     <Container>
       <Wrapper>
         <Actions>
-          <ActionItem onClick={openMenu} aria-label="Menu">
+          <ActionItem aria-label="Menu" onClick={openMenu}>
             <MenuIcon />
           </ActionItem>
         </Actions>
         <TabsGroup className="tabs-group" role="tablist" aria-hidden="true" />
         <Actions>
-          <ActionItem onClick={createSession} aria-label="New Terminal">
+          <ActionItem aria-label="New Terminal" onClick={createSession}>
             <PlusIcon />
           </ActionItem>
         </Actions>
         <DragRegion />
         <Actions>
-          <ActionItem onClick={openSettings} aria-label="Settings">
+          <ActionItem aria-label="Settings" onClick={openSettings}>
             <SettingsIcon />
           </ActionItem>
-          <ActionItem onClick={minimizeWindow} aria-label="Minimize">
+          <ActionItem aria-label="Minimize" onClick={minimizeWindow}>
             <MinimizeIcon />
           </ActionItem>
-          <ActionItem onClick={maximizeWindow} aria-label="Maximize">
+          <ActionItem aria-label="Maximize" onClick={maximizeWindow}>
             {maximized ? <RestoreIcon /> : <MaximizeIcon />}
           </ActionItem>
-          <ActionItem onClick={closeWindow} aria-label="Close">
+          <ActionItem aria-label="Close" onClick={closeWindow}>
             <CloseIcon />
           </ActionItem>
         </Actions>
