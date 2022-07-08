@@ -1,9 +1,9 @@
 import { MenuItemConstructorOptions } from 'electron';
 import { Menu, shell, dialog } from '@electron/remote';
 import packageJSON from '../package.json';
-import Session from './core/session';
-import Settings from './settings/settings';
-import { appName, appNameUpper, appVersion, currentWindow } from './constants';
+import Session from './common/Session';
+import Settings from './settings/Settings';
+import { appName, appNameUpper, appVersion, currentWindow } from './Constants';
 
 const session = new Session();
 const settings = new Settings();

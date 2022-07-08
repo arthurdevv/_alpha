@@ -19,7 +19,7 @@ export const currentWindow = getCurrentWindow();
 
 export const settingsOptions = {
   parsedPath: path.join(userData, '.alpha.js'),
-  defaultPath: path.resolve(appPath, 'app/settings/default.js'),
+  defaultPath: path.resolve(appPath, 'app/settings/Default.js'),
 };
 
 export const watcherOptions: chokidar.WatchOptions = {

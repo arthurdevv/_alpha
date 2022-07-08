@@ -1,9 +1,8 @@
-import Shell from './shell';
-import Instance from './instance';
-import Terminal from './terminal';
-import Settings from '../settings/settings';
-import Addons, { fitAddon } from './addon';
-import { isMac } from '../constants';
+import Shell from './Shell';
+import Instance from './Instance';
+import Terminal, { Addon } from './Terminal';
+import Settings from '../settings/Settings';
+import { isMac } from '../Constants';
 
 const { SHELL, ComSpec } = process.env;
 
@@ -36,12 +35,13 @@ class Session {
     this.terminal.launch(this.shell.shell);
     this.shell.launch(this.terminal.terminal);
 
-    Addons.forEach(addon => {
-      if (this.terminal) {
-        this.terminal.loadAddon(addon);
-        fitAddon.fit();
-      }
-    });
+    if (this.terminal) {
+      this.terminal.loadAddon(Addon.fitAddon);
+      this.terminal.loadAddon(Addon.webLinksAddon);
+      this.terminal.loadAddon(Addon.ligaturesAddon);
+      this.terminal.loadAddon(Addon.unicode11Addon);
+      Addon.fitAddon.fit();
+    }
 
     settings.watchOptions(this.terminal.terminal);
   }

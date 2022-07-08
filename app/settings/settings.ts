@@ -2,7 +2,7 @@ import vm from 'vm';
 import fs from 'fs';
 import chokidar from 'chokidar';
 import { shell } from 'electron';
-import { settingsOptions, watcherOptions } from '../constants';
+import { settingsOptions, watcherOptions } from '../Constants';
 
 const watcher = chokidar.watch(settingsOptions.parsedPath, watcherOptions);
 

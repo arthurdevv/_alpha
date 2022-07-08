@@ -30,7 +30,7 @@ Run the code in development mode:
 yarn run dev
 ```
 
-After that, you can generate the binaries:
+After that, you can package the binaries:
 
 ```sh
 yarn run package

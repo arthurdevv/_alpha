@@ -1,6 +1,20 @@
 import * as xterm from 'xterm';
 import { IPty } from 'node-pty';
+import { shell } from 'electron';
+import { FitAddon } from 'xterm-addon-fit';
+import { WebLinksAddon } from 'xterm-addon-web-links';
+import { Unicode11Addon } from 'xterm-addon-unicode11';
+import { LigaturesAddon } from 'xterm-addon-ligatures';
 import 'xterm/css/xterm.css';
+
+const { openExternal } = shell;
+
+export const Addon = {
+  fitAddon: new FitAddon(),
+  unicode11Addon: new Unicode11Addon(),
+  ligaturesAddon: new LigaturesAddon(),
+  webLinksAddon: new WebLinksAddon((e, uri) => openExternal(uri)),
+};
 
 class Terminal {
   terminal: xterm.Terminal | null;

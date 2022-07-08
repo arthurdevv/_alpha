@@ -10,7 +10,7 @@ const config = [
     name: 'main',
     target: 'electron-main',
     mode: isDev ? 'development' : 'production',
-    entry: path.resolve(__dirname, 'app', 'electron/window.ts'),
+    entry: path.resolve(__dirname, 'app', 'electron/Window.ts'),
     devtool: 'source-map',
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],

@@ -1,9 +1,9 @@
 import React from 'react';
-import Menu from '../../../app/menu';
-import Session from '../../../app/core/session';
-import Settings from '../../../app/settings/settings';
-import { fitAddon } from '../../../app/core/addon';
-import { isMac, currentWindow } from '../../../app/constants';
+import Menu from '../../../app/Menu';
+import Session from '../../../app/common/Session';
+import Settings from '../../../app/settings/Settings';
+import { Addon } from '../../../app/common/Terminal';
+import { isMac, currentWindow } from '../../../app/Constants';
 import {
   Container,
   Wrapper,
@@ -56,7 +56,7 @@ const Header: React.FC = () => {
 
     setMaximized(!maximized);
 
-    setTimeout(() => fitAddon.fit(), 1000);
+    setTimeout(() => Addon.fitAddon.fit(), 1000);
   };
 
   const createSession = React.useCallback(() => {
