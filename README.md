@@ -7,16 +7,16 @@
 </p>
 
 <div align="center">
-  <a href="https://github.com/arthurdevv/_alpha/releases">
-    <img src="https://img.shields.io/github/downloads/arthurdevv/_alpha/total?color=white&style=for-the-badge" alt="Downloads">
+  <a href="https://github.com/arthurdevv/alpha/releases">
+    <img src="https://img.shields.io/github/downloads/arthurdevv/alpha/total?color=white&style=for-the-badge" alt="Downloads">
   </a>
-  <a href="https://github.com/arthurdevv/_alpha/releases/latest">
-    <img src="https://img.shields.io/github/v/release/arthurdevv/_alpha?color=white&style=for-the-badge" alt="Release">
+  <a href="https://github.com/arthurdevv/alpha/releases/latest">
+    <img src="https://img.shields.io/github/v/release/arthurdevv/alpha?color=white&style=for-the-badge" alt="Release">
   </a>
   <a href="LICENSE">
-    <img src="https://img.shields.io/github/license/arthurdevv/_alpha?color=white&style=for-the-badge" alt="License">
+    <img src="https://img.shields.io/github/license/arthurdevv/alpha?color=white&style=for-the-badge" alt="License">
   </a>
-  <a href="https://github.com/arthurdevv/_alpha/releases/latest">
+  <a href="https://github.com/arthurdevv/alpha/releases/latest">
     <img src="https://img.shields.io/static/v1.svg?color=white&label=Platform&message=WIN%20|%20LINUX%20|%20MACOS&style=for-the-badge" alt="Platform">
   </a>
 </div>
@@ -25,7 +25,7 @@
 
 ## Usage
 
-[Download the latest Alpha release!](https://github.com/arthurdevv/_alpha/releases/latest)
+[Download the latest Alpha release!](https://github.com/arthurdevv/alpha/releases/latest)
 
 Alpha will automatically update when a new release is available.
 
